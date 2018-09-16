@@ -116,16 +116,41 @@ router.get('/profile/:id', (req, res) => {
 
 // insert data from form into mongodb
 router.post('/profile', (req, res) => {
+	//const query = req.query
+	// if(req.params.fistName == null || req.query.lastName == null ||
+	// 	req.query.age == null || req.query.team == null || req.query.position == null) {
+	// 	res.json({
+	// 		confirmation: 'fail',
+	// 		data: 'One of the field is empty!'+' First Name: '+req.query.fistName+
+	// 		' Lastt Name: '+req.lastName+' Age: '+req.age+
+	// 		' Team: '+req.team+' Position: '+req.position +
+	// 	})
+
+	// } else {
+	// 	Profile.create(req.body)
+	// 	.then(profile => {
+	// 		res.json({
+	// 			confirmation: 'success',
+	// 			data: profile
+	// 		})
+	// 	})
+	// 	.catch(err => {
+	// 		res.json({
+	// 		confirmation: 'fail',
+	// 		message: err.message
+	// 	})
+	// })
+	// }
 
 	Profile.create(req.body)
-	.then(profile => {
-		res.json({
-			confirmation: 'success',
-			data: profile
+		.then(profile => {
+			res.json({
+				confirmation: 'success',
+				data: profile
+			})
 		})
-	})
-	.catch(err => {
-		res.json({
+		.catch(err => {
+			res.json({
 			confirmation: 'fail',
 			message: err.message
 		})
